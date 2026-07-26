@@ -54,14 +54,14 @@ JSON 为数组，每个元素代表一页，含两部分：
 
 评测代码在 [OmniDocBench 官方仓库](https://github.com/opendatalab/OmniDocBench)，把模型输出的 Markdown 与本 JSON 对齐后计算：文本 Edit Distance、表格 TEDS、公式 CDM。
 
-因为口径与官方一致，结果可直接对照公开榜单分数（见同仓库 `esg_ocr_test/ocr_model_benchmark_summary.md`）。
+因为口径与官方一致，结果可直接对照公开榜单分数（见同仓库 `vidore_esg_reports_v2/ocr_model_benchmark_summary.md`）。
 
-## 与 `esg_ocr_test/` 的分工
+## 与 `vidore_esg_reports_v2/` 的分工
 
 | 数据集 | Ground Truth | 用途 |
 |---|---|---|
 | `omnidocbench_en/`（本目录） | 有 | 定量评分，可与公开榜单对表 |
-| `esg_ocr_test/` | 无 | 真实 ESG 领域回归，人工审查 |
+| `vidore_esg_reports_v2/` | 无 | 真实 ESG 领域回归，人工审查 |
 
 ## 来源
 

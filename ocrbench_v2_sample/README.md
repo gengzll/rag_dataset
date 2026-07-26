@@ -1,8 +1,8 @@
-# OCRBench v2 采样子集（210 条 / 50 MB）
+# OCRBench v2 英文采样子集（310 条 / 50 MB）
 
-从 [OCRBench v2](https://arxiv.org/abs/2501.00321)（NeurIPS 2025）中流式抽取的 **210 条样本**，覆盖 18 种任务类型，每类 12 条。
+从 [OCRBench v2](https://arxiv.org/abs/2501.00321)（NeurIPS 2025）中流式抽取的 **310 条英文样本**，覆盖 12 种任务类型。中文任务（`* cn`）已全部剔除。
 
-> ⚠️ **用途提醒**：OCRBench v2 评测的是**通用多模态大模型（LMM）**的文字能力，不是文档解析管线。MinerU / PaddleOCR-VL / DeepSeek-OCR **均不在其榜单上**。本目录供 agent 选型时比较通用 VLM 使用，**不适用于 OCR 解析模块的选型**（那个请用 `omnidocbench_en/`）。详见 `esg_ocr_test/ocr_model_benchmark_summary.md` 第二节。
+> ⚠️ **用途提醒**：OCRBench v2 评测的是**通用多模态大模型（LMM）**的文字能力，不是文档解析管线。MinerU / PaddleOCR-VL / DeepSeek-OCR **均不在其榜单上**。本目录供 agent 选型时比较通用 VLM 使用，**不适用于 OCR 解析模块的选型**（那个请用 `omnidocbench_en/`）。详见 `vidore_esg_reports_v2/ocr_model_benchmark_summary.md` 第二节。
 
 ## 目录结构
 
@@ -21,25 +21,22 @@ OCRBench v2 在 HuggingFace 上以打包 parquet 形式发布，无法按文件�
 | `ling99/OCRBench_v2`（本采样来源） | 943 MB | 3 片，最小 219 MB |
 | `lmms-lab/OCRBench-v2` | 4.9 GB | 11 片，最小 143 MB |
 
-因此采用流式读取（range 请求），按 `type` 分层采样、每类最多 12 条，累计约 50 MB 即停。实际网络传输量约等于采样体积，而非全量 943 MB。
+因此采用流式读取（range 请求），只保留英文任务，按 `type` 分层采样、每类最多 30 条，累计 50 MB 即停。实际网络传输量约等于采样体积，而非全量 943 MB。
 
 注意：直接取前 N 行会全是 `rico` 手机截图（数据集按来源排序），所以必须分层采样才有代表性。
 
-## 任务类型分布
+## 任务类型分布（共 310 条，全英文）
 
 | 类型 | 条数 | 类型 | 条数 |
 |---|---|---|---|
-| APP agent en | 12 | document classification en | 12 |
-| ASCII art classification en | 12 | document parsing cn | 12 |
-| key information extraction cn | 12 | document parsing en | 12 |
-| key information extraction en | 12 | formula recognition cn | 12 |
-| key information mapping en | 12 | formula recognition en | 12 |
-| VQA with position en | 12 | handwritten answer extraction cn | 12 |
-| chart parsing en | 12 | math QA en | 12 |
-| cognition VQA cn | 12 | cognition VQA en | 12 |
-| diagram QA en | 12 | full-page OCR cn | 6 |
+| APP agent en | 30 | cognition VQA en | 30 |
+| ASCII art classification en | 30 | diagram QA en | 30 |
+| key information extraction en | 30 | document classification en | 30 |
+| key information mapping en | 30 | document parsing en | 15 |
+| VQA with position en | 30 | formula recognition en | 13 |
+| chart parsing en | 30 | math QA en | 12 |
 
-其中与文档解析相关的是 `document parsing`、`chart parsing`、`key information extraction`、`full-page OCR`；其余为 App 界面、ASCII 艺术、数学问答等场景。
+其中与文档解析相关的是 `document parsing`、`chart parsing`、`key information extraction`、`key information mapping`；其余为 App 界面、ASCII 艺术、数学问答等场景。
 
 ## 标注格式
 
