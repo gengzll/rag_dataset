@@ -2,7 +2,7 @@
 
 从 [OCRBench v2](https://arxiv.org/abs/2501.00321)（NeurIPS 2025）中流式抽取的 **310 条英文样本**，覆盖 12 种任务类型。中文任务（`* cn`）已全部剔除。
 
-> ⚠️ **用途提醒**：OCRBench v2 评测的是**通用多模态大模型（LMM）**的文字能力，不是文档解析管线。MinerU / PaddleOCR-VL / DeepSeek-OCR **均不在其榜单上**。本目录供 agent 选型时比较通用 VLM 使用，**不适用于 OCR 解析模块的选型**（那个请用 `omnidocbench_en/`）。详见 `vidore_esg_reports_v2/ocr_model_benchmark_summary.md` 第二节。
+> ⚠️ **用途提醒**：OCRBench v2 评测的是**通用多模态大模型（LMM）**的文字能力，不是文档解析管线。MinerU / PaddleOCR-VL / DeepSeek-OCR **均不在其榜单上**。本目录供 agent 选型时比较通用 VLM 使用，**不适用于 OCR 解析模块的选型**（那个请用 `omnidocbench_en/`）。详见仓库根目录 [`ocr_eval_guide.md`](../ocr_eval_guide.md) 第三节。
 
 ## 目录结构
 

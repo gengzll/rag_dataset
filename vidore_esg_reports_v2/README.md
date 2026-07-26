@@ -32,4 +32,4 @@
 
 1. 无标注数据，评估方式为人工审查模型输出（Markdown/JSON）与原页面的一致性。
 2. 重点检查**表格输出**（TEDS 意义上的结构还原）——这是各模型在 OmniDocBench 上拉开差距的主要子项，也是 ESG 文档的核心内容。
-3. 定量分数需求请配合带 ground truth 的公开基准（OmniDocBench 等），本数据集负责领域真实性回归。各模型版本的公开基准成绩见 [`ocr_model_benchmark_summary.md`](./ocr_model_benchmark_summary.md)。
+3. 定量分数请配合带 ground truth 的 [`omnidocbench_en/`](../omnidocbench_en)，本数据集负责领域真实性回归。各模型版本的公开基准成绩与评测流程建议见仓库根目录 [`ocr_eval_guide.md`](../ocr_eval_guide.md)。
